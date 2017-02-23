@@ -1,12 +1,13 @@
 //Refactor the VideoList component to dynamically render one VideoListEntry component for each video object in exampleVideoData
 
 var VideoList = (props) => (
+  
+  {debugger}
   <div className="video-list media">
     {props.videos.map(video =>
       <VideoListEntry video={video} />)}
   </div>
 );
-
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
 VideoList.propTypes = {
