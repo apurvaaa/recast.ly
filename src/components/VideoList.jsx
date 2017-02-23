@@ -1,14 +1,12 @@
-var VideoList = () => (
+//Refactor the VideoList component to dynamically render one VideoListEntry component for each video object in exampleVideoData
+
+var VideoList = (props) => (
   <div className="video-list media">
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
+    {console.log('props', props)}
+    {props.videos.map(video =>
+      <VideoListEntry video={video} />
+    )}
+
   </div>
 );
 
