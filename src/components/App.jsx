@@ -10,16 +10,36 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getYouTubeVideos('cats');
+  }
+
+  getYouTubeVideos(query) {
+
+    console.log('props : ', this.props);
+    console.log('inside get videos');
+    var options = {
+      key: this.props.API_KEY,
+      query: query
+    }
+    this.props.searchYouTube(options, (videos) => {
+      this.setState({
+      videoListEntries: videos,
+      currentVideo: videos[0]
+    });
+  });
+  }
+
   playThisVideo(video) {
     this.setState({
       currentVideo: video
     });
-  };
+  }
 
   render() {
     return (
       <div>
-        <Nav />
+        <Nav handleSearchInputChange={this.getYouTubeVideos.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo}/>
         </div>

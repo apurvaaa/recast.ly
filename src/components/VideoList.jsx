@@ -5,7 +5,7 @@ var VideoList = ({videos, playThisVideo, key}) => (
   
   <div className="video-list media">
     {videos.map((video, index) =>
-      <VideoListEntry video={video} playThisVideo={playThisVideo} key={index}/>)}
+      <VideoListEntry video={video} playThisVideo={playThisVideo} key={video.id.videoId}/>)}
   </div>
 );
 // PropTypes tell other developers what `props` a component expects
