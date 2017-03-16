@@ -4,6 +4,8 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    //console.log('props in constructor: ', props);
+    //console.log('this in constructor of app: ', this);
     this.state = {
       currentVideo: window.exampleVideoData[0],
       videoListEntries: window.exampleVideoData
@@ -12,22 +14,21 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getYouTubeVideos('cats');
-  }
+  } 
 
   getYouTubeVideos(query) {
 
-    console.log('props : ', this.props);
-    console.log('inside get videos');
+    //console.log('props in getYouTubeVideos: ', this.props);
     var options = {
       key: this.props.API_KEY,
       query: query
-    }
+    };
     this.props.searchYouTube(options, (videos) => {
       this.setState({
-      videoListEntries: videos,
-      currentVideo: videos[0]
+        videoListEntries: videos,
+        currentVideo: videos[0]
+      });
     });
-  });
   }
 
   playThisVideo(video) {
